@@ -301,8 +301,34 @@ PRODUCT_COPY_FILES += \
 # Shipping API level
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
 
+# Archer Custom Overrides
+
 # ADB
+#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+#    persist.sys.usb.config=adb \
+#    ro.adb.secure=0 \
+#    ro.secure=0
+
+# Media Volume Steps
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.sys.usb.config=adb \
-    ro.adb.secure=0 \
-    ro.secure=0
+    ro.config.media_vol_steps=33
+
+# Navigation Bar Enable
+#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+#    qemu.hw.mainkeys=0
+
+# Bluetooth Stability Tweaks
+#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.vendor.btstack.a2dp_offload_cap=sbc-aac-aptx-aptxhd
+
+# Default to MTP for USB
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    sys.usb.config=mtp
+    sys.usb.state=mtp
+#    persist.sys.usb.config=adb
+#    sys.usb.config=mtp,adb
+#    sys.usb.state=mtp,adb
+
+# Force adoptable storage so that USB drives will mount properly
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.sys.adoptable=force_on
