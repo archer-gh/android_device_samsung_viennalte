@@ -61,7 +61,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    lockscreen.rot_override=true
+    lockscreen.rot_override=false
+#   lockscreen.rot_override=true //archer
+
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
